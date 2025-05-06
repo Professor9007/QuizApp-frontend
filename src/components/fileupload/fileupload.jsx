@@ -15,7 +15,7 @@ const FileUploadScreen = ({ handleQuestionsInput }) => {
     const formData = new FormData();
     formData.append('file', file);
 
-    const res = await fetch('http://localhost:3001/fileuploading', {
+    const res = await fetch('https://quizapp-backend-bqes.onrender.com/fileuploading', {
       method: 'POST',
       body: formData,
     });
