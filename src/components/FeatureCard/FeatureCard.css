@@ -1,0 +1,29 @@
+/* FeatureCard.css */
+.feature-card {
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+  }
+  
+  .icon-container {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background-color: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f46e5;
+    margin-bottom: 0.75rem;
+  }
+  
+  .feature-title {
+    font-weight: 500;
+    color: #1a202c;
+    margin-bottom: 0.25rem;
+  }
+  
+  .feature-description {
+    font-size: 0.875rem;
+    color: #4a5568;
+  }

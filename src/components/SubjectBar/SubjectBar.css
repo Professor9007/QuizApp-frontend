@@ -1,0 +1,46 @@
+/* SubjectBar.css */
+.subject-bar-container {
+    margin-bottom: 1rem;
+  }
+  
+  .subject-bar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+  }
+  
+  .subject-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .subject-percentage {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .progress-bar-bg {
+    width: 100%;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    height: 0.5rem;
+  }
+  
+  .progress-bar {
+    height: 0.5rem;
+    border-radius: 9999px;
+  }
+  
+  .progress-bar-high {
+    background-color: #10b981;
+  }
+  
+  .progress-bar-medium {
+    background-color: #f59e0b;
+  }
+  
+  .progress-bar-low {
+    background-color: #ef4444;
+  }

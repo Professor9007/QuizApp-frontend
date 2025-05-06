@@ -1,0 +1,35 @@
+/* SidebarItem.css */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(237, 233, 254, 0.9);
+  }
+  
+  .sidebar-item:hover {
+    background-color: #4f46e5;
+  }
+  
+  .sidebar-item.active {
+    background-color: #312e81;
+    color: white;
+  }
+  
+  .sidebar-icon {
+    margin-right: 0.75rem;
+  }
+  
+  .sidebar-title {
+    flex: 1;
+  }
+  
+  .sidebar-chevron {
+    margin-left: auto;
+  }
