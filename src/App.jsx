@@ -58,7 +58,7 @@ const scheduleTokenRenewal = (token) => {
     setTimeout(async () => {
       try {
         const currentToken = localStorage.getItem('token');
-        const response = await fetch('http://localhost:3001/users/renew-token', {
+        const response = await fetch('https://quizapp-backend-bqes.onrender.com/users/renew-token', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -25,7 +25,7 @@ export default function RegisterPage() {
         return;
       }
       
-      const response = await axios.post('http://localhost:3001/users/register', {
+      const response = await axios.post('https://quizapp-backend-bqes.onrender.com/users/register', {
         name,
         email,
         password,

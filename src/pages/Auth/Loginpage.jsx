@@ -103,7 +103,7 @@ export default function LoginPage() {
       }
   
       // Login request
-      const response = await fetch('http://localhost:3001/users/login', {
+      const response = await fetch('https://quizapp-backend-bqes.onrender.com/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -124,7 +124,7 @@ export default function LoginPage() {
   
       // Try to fetch quizzes
       let userData;
-      const quizzesResponse = await fetch('http://localhost:3001/quizzes', {
+      const quizzesResponse = await fetch('https://quizapp-backend-bqes.onrender.com/quizzes', {
         headers: { Authorization: `Bearer ${data.token}` }
       });
   
@@ -137,7 +137,7 @@ export default function LoginPage() {
         } else {
           // If no quiz data, fetch user profile
           console.log('No quiz data found. Fetching user profile...');
-          const profileResponse = await fetch('http://localhost:3001/users/profile', {
+          const profileResponse = await fetch('https://quizapp-backend-bqes.onrender.com/users/profile', {
             headers: {
               Authorization: `Bearer ${data.token}`,
               'Content-Type': 'application/json'

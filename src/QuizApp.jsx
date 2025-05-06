@@ -48,7 +48,7 @@ export default function QuizApp({logout}) {
   
   
       // Fetch quiz data
-      const profileResponse = await fetch('http://localhost:3001/quizzes', {
+      const profileResponse = await fetch('https://quizapp-backend-bqes.onrender.com/quizzes', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -201,7 +201,7 @@ export default function QuizApp({logout}) {
     // API call remains the same
     const token = localStorage.getItem('token');
     
-    fetch('http://localhost:3001/quizzes', {
+    fetch('https://quizapp-backend-bqes.onrender.com/quizzes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

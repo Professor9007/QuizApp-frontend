@@ -28,7 +28,7 @@ const FileUploadScreen = ({ handleQuestionsInput }) => {
   const handleGenerateQuestions = async () => {
     if (!result) return;
     setLoading(true);
-    const res = await fetch('http://localhost:3001/questionnaire', {
+    const res = await fetch('https://quizapp-backend-bqes.onrender.com/questionnaire', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: result }),

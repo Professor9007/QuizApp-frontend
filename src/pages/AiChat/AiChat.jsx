@@ -24,7 +24,7 @@ export default function AIChat() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/aichat', {
+      const response = await fetch('https://quizapp-backend-bqes.onrender.com/aichat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: inputValue })
