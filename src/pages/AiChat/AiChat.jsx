@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AIChat.css';
+import './AiChat.css';
 
 export default function AIChat() {
   const [messages, setMessages] = useState([
