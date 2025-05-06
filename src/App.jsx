@@ -46,7 +46,7 @@ const scheduleTokenRenewal = (token) => {
     const currentTime = Date.now() / 1000;
     const expiryTime = decoded.exp; // in seconds
 
-    const timeUntilRenewal = (expiryTime - currentTime - 60) * 1000; // renew 1 min before expiry
+    const timeUntilRenewal = (expiryTime - currentTime - 240) * 1000; // renew 4 mins before expiry
 
     if (timeUntilRenewal <= 0) {
       // If already expired or renewal time passed
