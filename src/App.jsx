@@ -11,7 +11,7 @@ import './App.css';
 const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('userData');
-  window.location.href = '/login';
+  window.location.href = '/';
 };
 
 // Protected route component
