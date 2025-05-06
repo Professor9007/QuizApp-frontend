@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import './SidebarItem.css';
+import './SideBarItem.css';
 
 // Sidebar Item Component
 export function SidebarItem({ icon, title, active, onClick }) {
