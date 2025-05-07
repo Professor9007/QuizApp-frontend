@@ -1,12 +1,17 @@
-/* quizdetails.css */
+/* Base defaults */
+html, body {
+  color: #000000;
+  background-color: #ffffff;
+}
 
+/* quizdetails.css */
 .quiz-details-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-  color: #333;
-  background-color: #f5f9fc;
+  color: #333; /* Keep original color */
+  background-color: #f5f9fc; /* Keep original background */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -16,16 +21,17 @@
   margin-bottom: 30px;
   border-bottom: 2px solid #e1ebf5;
   padding-bottom: 20px;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Keep original background */
   border-radius: 10px;
   padding: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  color: #000000; /* Default text color */
 }
 
 .quiz-header h1 {
   margin: 0 0 20px 0;
   font-size: 32px;
-  color: #1a5db4;
+  color: #1a5db4; /* Keep original color */
   font-weight: 700;
 }
 
@@ -34,6 +40,7 @@
   flex-wrap: wrap;
   gap: 30px;
   justify-content: space-between;
+  color: #000000; /* Default text color */
 }
 
 .meta-item {
@@ -43,7 +50,7 @@
 
 .meta-label {
   font-size: 14px;
-  color: #6c8bb0;
+  color: #6c8bb0; /* Keep original color */
   margin-bottom: 6px;
   font-weight: 500;
 }
@@ -51,7 +58,7 @@
 .meta-value {
   font-size: 18px;
   font-weight: 600;
-  color: #2c3e50;
+  color: #2c3e50; /* Keep original color */
 }
 
 /* Updated score text styles */
@@ -60,29 +67,30 @@
 }
 
 .score-text.high-accuracy {
-  color: #2ecc71;
+  color: #2ecc71; /* Keep original color */
 }
 
 .score-text.medium-accuracy {
-  color: #f39c12;
+  color: #f39c12; /* Keep original color */
 }
 
 .score-text.low-accuracy {
-  color: #e74c3c;
+  color: #e74c3c; /* Keep original color */
 }
 
 /* Quiz Analysis */
 .quiz-analysis {
-  background-color: #f0f7ff;
+  background-color: #f0f7ff; /* Keep original background */
   border-radius: 10px;
   padding: 25px;
   margin-bottom: 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  color: #000000; /* Default text color */
 }
 
 .quiz-analysis h2 {
   margin-top: 0;
-  color: #1a5db4;
+  color: #1a5db4; /* Keep original color */
   font-size: 24px;
   margin-bottom: 25px;
   font-weight: 600;
@@ -103,12 +111,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: white; /* Keep original background */
   padding: 15px 10px;
   border-radius: 10px;
   flex: 1;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
+  color: #000000; /* Default text color */
 }
 
 .stat-card:hover {
@@ -116,19 +125,19 @@
 }
 
 .correct-stat .stat-value {
-  color: #2ecc71;
+  color: #2ecc71; /* Keep original color */
 }
 
 .incorrect-stat .stat-value {
-  color: #e74c3c;
+  color: #e74c3c; /* Keep original color */
 }
 
 .unattempted-stat .stat-value {
-  color: #f39c12;
+  color: #f39c12; /* Keep original color */
 }
 
 .total-questions .stat-value {
-  color: #3498db;
+  color: #3498db; /* Keep original color */
 }
 
 .stat-value {
@@ -139,7 +148,7 @@
 
 .stat-label {
   font-size: 14px;
-  color: #6c8bb0;
+  color: #6c8bb0; /* Keep original color */
   font-weight: 500;
 }
 
@@ -178,19 +187,20 @@
 
 /* Questions Section */
 .questions-section h2 {
-  color: #1a5db4;
+  color: #1a5db4; /* Keep original color */
   font-size: 24px;
   margin-bottom: 25px;
   font-weight: 600;
 }
 
 .question-card {
-  background-color: white;
+  background-color: white; /* Keep original background */
   border-radius: 10px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   padding: 25px;
   margin-bottom: 25px;
   border-left: 5px solid #3498db;
+  color: #000000; /* Default text color */
 }
 
 .question-header {
@@ -206,7 +216,7 @@
 
 .question-number {
   font-size: 14px;
-  color: #6c8bb0;
+  color: #6c8bb0; /* Keep original color */
   font-weight: 500;
 }
 
@@ -214,7 +224,7 @@
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: #2c3e50; /* Keep original color */
   line-height: 1.5;
 }
 
@@ -230,9 +240,10 @@
   align-items: center;
   padding: 15px;
   border-radius: 8px;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* Keep original background */
   transition: all 0.2s ease;
   border: 1px solid #e9ecef;
+  color: #000000; /* Default text color */
 }
 
 .option:hover {
@@ -244,50 +255,50 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #e9eaeb;
+  background-color: #e9eaeb; /* Keep original background */
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   margin-right: 15px;
   font-size: 14px;
-  color: #2c3e50;
+  color: #2c3e50; /* Keep original color */
 }
 
 .option-text {
   font-size: 16px;
-  color: #2c3e50;
+  color: #2c3e50; /* Keep original color */
 }
 
 /* Option status styles */
 .correct-answer {
-  background-color: rgba(52, 152, 219, 0.1);
+  background-color: rgba(52, 152, 219, 0.1); /* Keep original background */
   border: 1px solid #3498db;
 }
 
 .correct-answer .option-letter {
-  background-color: #3498db;
-  color: white;
+  background-color: #3498db; /* Keep original background */
+  color: white; /* Keep original color */
 }
 
 .correct-option {
-  background-color: rgba(46, 204, 113, 0.1);
+  background-color: rgba(46, 204, 113, 0.1); /* Keep original background */
   border: 1px solid #2ecc71;
 }
 
 .correct-option .option-letter {
-  background-color: #2ecc71;
-  color: white;
+  background-color: #2ecc71; /* Keep original background */
+  color: white; /* Keep original color */
 }
 
 .wrong-option {
-  background-color: rgba(231, 76, 60, 0.1);
+  background-color: rgba(231, 76, 60, 0.1); /* Keep original background */
   border: 1px solid #e74c3c;
 }
 
 .wrong-option .option-letter {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #e74c3c; /* Keep original background */
+  color: white; /* Keep original color */
 }
 
 .answer-result {
@@ -296,30 +307,31 @@
   border-radius: 8px;
   margin-top: 20px;
   font-weight: 500;
+  color: #000000; /* Default text color */
 }
 
 .answer-result.correct {
-  background-color: rgba(46, 204, 113, 0.1);
+  background-color: rgba(46, 204, 113, 0.1); /* Keep original background */
 }
 
 .answer-result.incorrect {
-  background-color: rgba(231, 76, 60, 0.1);
+  background-color: rgba(231, 76, 60, 0.1); /* Keep original background */
 }
 
 .answer-result.unattempted {
-  background-color: rgba(243, 156, 18, 0.1);
+  background-color: rgba(243, 156, 18, 0.1); /* Keep original background */
 }
 
 .correct-text {
-  color: #2ecc71;
+  color: #2ecc71; /* Keep original color */
 }
 
 .incorrect-text {
-  color: #e74c3c;
+  color: #e74c3c; /* Keep original color */
 }
 
 .unattempted-text {
-  color: #f39c12;
+  color: #f39c12; /* Keep original color */
 }
 
 /* Mobile-specific quick result indicator */
@@ -332,19 +344,19 @@
   justify-content: center;
   font-weight: bold;
   font-size: 14px;
-  color: white;
+  color: white; /* Keep original color */
 }
 
 .quick-result.correct {
-  background-color: #2ecc71;
+  background-color: #2ecc71; /* Keep original background */
 }
 
 .quick-result.incorrect {
-  background-color: #e74c3c;
+  background-color: #e74c3c; /* Keep original background */
 }
 
 .quick-result.unattempted {
-  background-color: #f39c12;
+  background-color: #f39c12; /* Keep original background */
 }
 
 /* Expand/collapse indicator for mobile */
@@ -356,7 +368,7 @@
   justify-content: center;
   font-weight: bold;
   font-size: 20px;
-  color: #3498db;
+  color: #3498db; /* Keep original color */
   margin-left: 10px;
 }
 
@@ -364,13 +376,14 @@
 .quiz-not-found {
   text-align: center;
   padding: 60px 20px;
-  background-color: white;
+  background-color: white; /* Keep original background */
   border-radius: 10px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  color: #000000; /* Default text color */
 }
 
 .quiz-not-found h2 {
-  color: #e74c3c;
+  color: #e74c3c; /* Keep original color */
   margin-bottom: 15px;
 }
 
@@ -383,8 +396,8 @@
 }
 
 .return-button {
-  background-color: #3498db;
-  color: white;
+  background-color: #3498db; /* Keep original background */
+  color: white; /* Keep original color */
   border: none;
   border-radius: 8px;
   padding: 14px 28px;
@@ -399,7 +412,7 @@
 }
 
 .return-button:hover {
-  background-color: #2980b9;
+  background-color: #2980b9; /* Keep original background */
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
 }

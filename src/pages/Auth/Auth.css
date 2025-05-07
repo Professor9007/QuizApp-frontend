@@ -1,3 +1,4 @@
+
 /* Auth.css */
 html,
 body {
@@ -6,6 +7,8 @@ body {
   width: 100%;
   height: 100%;
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #000; /* Explicitly set default text color to black */
+  background-color: #fff; /* Explicitly set default background to white */
 }
 
 *,
@@ -22,12 +25,15 @@ body {
   padding: 0;
   overflow: hidden;
   gap: 0; /* Ensure no gap between containers */
+  color: #000; /* Default text color */
+  background-color: #fff; /* Default background color */
 }
 
 .auth-spline-container {
   flex: 0 0 42%; /* Increased from 37% to 42% */
   position: relative;
   background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff; /* Setting explicit color for this container since background is dark */
 }
 
 .auth-spline-container > * {
@@ -41,6 +47,7 @@ body {
 .auth-form-container {
   flex: 0 0 58%; /* Reduced from 63% to 58% */
   background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+  color: #000; /* Explicit text color */
   display: flex;
   align-items: center;
   justify-content: flex-start; /* Changed from center to flex-start */
@@ -81,6 +88,7 @@ body {
   max-width: 500px;
   margin: 0 auto;
   background-color: white;
+  color: #000; /* Explicit text color */
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
@@ -116,6 +124,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  color: #000; /* Explicit text color */
 }
 
 .form-group {
@@ -140,6 +149,7 @@ body {
   font-size: 1rem;
   transition: all 0.2s ease;
   background-color: #f7fafc;
+  color: #000; /* Explicit text color */
 }
 
 .form-group input:focus,
@@ -148,6 +158,7 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
   background-color: #fff;
+  color: #000; /* Explicit text color */
 }
 
 .auth-button {
@@ -205,6 +216,8 @@ body {
     flex-direction: row;
     height: 100vh;
     overflow: auto;
+    background-color: #fff; /* Explicit background */
+    color: #000; /* Explicit text color */
   }
   
   .auth-spline-container {
@@ -217,18 +230,24 @@ body {
     padding: 1rem;
     justify-content: center;
     min-height: 100vh;
+    background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+    color: #000; /* Explicit text color */
   }
   
   .auth-form-wrapper {
     max-height: 85vh;
     overflow-y: auto;
     padding: 1.5rem;
+    background-color: white;
+    color: #000; /* Explicit text color */
   }
 }
 
 @media (max-width: 992px) {
   .auth-container {
     flex-direction: column;
+    background-color: #fff; /* Explicit background */
+    color: #000; /* Explicit text color */
   }
   
   .auth-form-container {
@@ -236,12 +255,16 @@ body {
     flex: 1 0 100%;
     padding: 1.5rem;
     justify-content: center;
+    background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+    color: #000; /* Explicit text color */
   }
   
   .auth-form-wrapper {
     padding: 2rem;
     max-height: 90vh;
     overflow-y: auto;
+    background-color: white;
+    color: #000; /* Explicit text color */
   }
   
   /* Hide Spline container on mobile */
@@ -254,11 +277,14 @@ body {
   .auth-form-container {
     padding: 1rem;
     background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+    color: #000; /* Explicit text color */
   }
   
   .auth-form-wrapper {
     padding: 1.5rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: #000; /* Explicit text color */
   }
   
   .auth-form-wrapper h1 {
@@ -273,6 +299,8 @@ body {
   .form-group input,
   .form-group select {
     padding: 0.75rem;
+    color: #000; /* Explicit text color */
+    background-color: #f7fafc;
   }
 }
 
@@ -283,6 +311,8 @@ body {
   margin: 1rem auto; /* Add margin to ensure visibility */
   display: flex;
   flex-direction: column;
+  background-color: white;
+  color: #000; /* Explicit text color */
 }
 
 .auth-container.register-page .auth-form-wrapper h1 {
@@ -303,6 +333,8 @@ body {
 .auth-container.register-page .form-group select {
   padding: 0.7rem; /* Smaller input padding */
   font-size: 0.9rem;
+  color: #000; /* Explicit text color */
+  background-color: #f7fafc;
 }
 
 .auth-container.register-page .auth-button {
@@ -318,6 +350,8 @@ body {
     overflow-y: auto;
     width: 92%; /* Add more spacing on sides */
     margin: 0.5rem auto; /* Center the form better */
+    background-color: white;
+    color: #000; /* Explicit text color */
   }
   
   .auth-container.register-page .auth-form-wrapper h1 {

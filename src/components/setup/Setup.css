@@ -1,8 +1,11 @@
-Setup.css
-.setup-container {
-    background: linear-gradient(145deg, 
-    #e6f7ff, 
-    #f0ffff);
+/* Base defaults */
+html, body {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  .setup-container {
+    background: linear-gradient(145deg, #e6f7ff, #f0ffff); /* Keep original background */
     border-radius: 1rem;
     box-shadow: 0 8px 20px rgba(0, 150, 200, 0.1);
     padding: 2rem;
@@ -10,55 +13,52 @@ Setup.css
     width: 100%;
     margin: 0 auto;
     border: 1px solid rgba(100, 200, 255, 0.2);
-    }
-    
-    .setup-title {
-    color: 
-    #0088cc;
+    color: #000000; /* Default text color */
+  }
+  
+  .setup-title {
+    color: #0088cc; /* Keep original color */
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 0.5px;
-    }
-    
-    .setup-form-group {
+  }
+  
+  .setup-form-group {
     margin-bottom: 1.5rem;
-    }
-    
-    .setup-label {
+    color: #000000; /* Default text color */
+  }
+  
+  .setup-label {
     display: block;
-    color: 
-    #006699;
+    color: #006699; /* Keep original color */
     margin-bottom: 0.75rem;
     font-weight: 600;
     font-size: 1rem;
-    }
-    
-    .setup-input {
+  }
+  
+  .setup-input {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 2px solid rgba(100, 200, 255, 0.3);
     border-radius: 0.5rem;
     font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8); /* Keep original background */
     transition: all 0.3s ease;
-    }
-    
-    .setup-input
-     {
+    color: #000000; /* Default text color for inputs */
+  }
+  
+  .setup-input:focus {
     outline: none;
-    border-color: 
-    #4db8ff;
+    border-color: #4db8ff;
     box-shadow: 0 0 0 3px rgba(77, 184, 255, 0.3);
-    }
-    
-    .setup-button {
+  }
+  
+  .setup-button {
     width: 100%;
-    background: linear-gradient(to right, 
-    #0088cc, 
-    #00ccbb);
-    color: white;
+    background: linear-gradient(to right, #0088cc, #00ccbb); /* Keep original background */
+    color: white; /* Keep original color */
     border: none;
     border-radius: 0.5rem;
     padding: 0.875rem;
@@ -69,42 +69,39 @@ Setup.css
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 10px rgba(0, 136, 204, 0.3);
-    }
-    
-    .setup-button
-     {
-    background: linear-gradient(to right, 
-    #006699, 
-    #00aa99);
+  }
+  
+  .setup-button:hover {
+    background: linear-gradient(to right, #006699, #00aa99); /* Keep original hover gradient */
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 136, 204, 0.4);
-    }
-    
-    .setup-button
-     {
+  }
+  
+  .setup-button:active {
     transform: translateY(1px);
-    }
-    
-    .setup-error {
-    color: 
-    #e74c3c;
+  }
+  
+  .setup-error {
+    color: #e74c3c; /* Keep original error color */
     font-size: 0.875rem;
     margin-top: 0.5rem;
-    }
-    
-    .setup-info {
-    background-color: rgba(0, 204, 187, 0.1);
+  }
+  
+  .setup-info {
+    background-color: rgba(0, 204, 187, 0.1); /* Keep original background */
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    border-left: 4px solid 
-    #00ccbb;
-    }
-    
-    .setup-info-text {
-    color: 
-    #00827a;
+    border-left: 4px solid #00ccbb;
+    color: #000000; /* Default text color */
+  }
+  
+  .setup-info-text {
+    color: #00827a; /* Keep original color */
     font-size: 0.9rem;
-    }
-    
-    
+  }
+  
+  /* Default for any unspecified text elements */
+  .setup-container *:not(.setup-title):not(.setup-label):not(.setup-button):not(.setup-error):not(.setup-info-text) {
+    color: inherit; /* Elements will inherit their parent's color unless specifically defined */
+  }

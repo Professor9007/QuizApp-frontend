@@ -1,4 +1,10 @@
 /* AIChat.css */
+/* Set default colors for the entire document */
+html, body {
+  color: #000000;
+  background-color: #ffffff;
+}
+
 .chat-container {
   height: 100%;
   display: flex;
@@ -7,12 +13,14 @@
   border-radius: 0.5rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  color: #000000; /* Explicitly set font color */
 }
 
 .chat-header {
   padding: 1rem;
   background-color: #eef2ff;
   border-bottom: 1px solid #e2e8f0;
+  color: #000000; /* Ensure text is black in header */
 }
 
 .header-title {
@@ -32,6 +40,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: white; /* Explicitly set background */
+  color: #000000; /* Explicitly set font color */
 }
 
 .message-wrapper {
@@ -66,10 +76,12 @@
 /* Formatted content styles */
 .formatted-content {
   font-size: 0.875rem;
+  color: #000000; /* Ensure text is black */
 }
 
 .formatted-content p {
   margin: 0.5em 0;
+  color: inherit; /* Inherit the parent color */
 }
 
 .formatted-content strong {
@@ -86,6 +98,7 @@
 .input-container {
   padding: 1rem;
   border-top: 1px solid #e2e8f0;
+  background-color: white; /* Ensure background is white */
 }
 
 .input-wrapper {
@@ -101,6 +114,8 @@
   border-top-left-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
   outline: none;
+  background-color: white; /* Ensure input has white background */
+  color: #000000; /* Ensure text is black */
 }
 
 .message-input:focus {
