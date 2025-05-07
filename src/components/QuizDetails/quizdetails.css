@@ -193,10 +193,20 @@
   border-left: 5px solid #3498db;
 }
 
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.question-content {
+  width: 100%;
+}
+
 .question-number {
   font-size: 14px;
   color: #6c8bb0;
-  margin-bottom: 12px;
   font-weight: 500;
 }
 
@@ -312,6 +322,44 @@
   color: #f39c12;
 }
 
+/* Mobile-specific quick result indicator */
+.quick-result {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+
+.quick-result.correct {
+  background-color: #2ecc71;
+}
+
+.quick-result.incorrect {
+  background-color: #e74c3c;
+}
+
+.quick-result.unattempted {
+  background-color: #f39c12;
+}
+
+/* Expand/collapse indicator for mobile */
+.expand-indicator {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #3498db;
+  margin-left: 10px;
+}
+
 /* Error message */
 .quiz-not-found {
   text-align: center;
@@ -366,35 +414,141 @@
   display: inline-flex;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .quiz-details-container {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .quiz-header {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-header h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
   .quiz-meta {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+  }
+  
+  .meta-value {
+    font-size: 16px;
   }
   
   .analysis-stats {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
   
   .stat-card {
-    min-width: calc(50% - 10px);
-    flex: 0 0 calc(50% - 10px);
+    padding: 12px 6px;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
   }
   
   .accuracy-stat {
-    flex-basis: 100%;
-    margin-top: 10px;
+    grid-column: span 2;
+    width: 100%;
+    margin: 10px auto;
+    max-width: 160px;
   }
   
-  .stat-item {
-    width: 100%;
+  /* Mobile cards collapsible behavior */
+  .question-card.mobile-card {
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .question-card.mobile-card .question-text {
+    font-size: 16px;
+    margin-bottom: 0;
+    transition: margin-bottom 0.3s ease;
+  }
+  
+  .question-card.mobile-card.expanded .question-text {
+    margin-bottom: 20px;
+  }
+  
+  .question-card.mobile-card .options-list {
+    display: none;
+  }
+  
+  .question-card.mobile-card.expanded .options-list {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .question-card.mobile-card .answer-result {
+    display: none;
+  }
+  
+  .question-card.mobile-card.expanded .answer-result {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .option {
+    padding: 12px;
+  }
+  
+  .option-letter {
+    width: 26px;
+    height: 26px;
+    min-width: 26px; /* Ensures the circle doesn't shrink */
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
+  .option-text {
+    font-size: 14px;
+    word-break: break-word; /* Ensures long words don't overflow */
+  }
+  
+  .answer-result {
+    font-size: 14px;
+    padding: 10px 12px;
   }
   
   .return-button {
     width: 100%;
     padding: 12px 20px;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 375px) {
+  .quiz-details-container {
+    padding: 8px;
+  }
+  
+  .quiz-header {
+    padding: 12px;
+  }
+  
+  .quiz-header h1 {
+    font-size: 20px;
+  }
+  
+  .stat-value {
+    font-size: 20px;
+  }
+  
+  .option-text {
+    font-size: 13px;
   }
 }
 
@@ -414,4 +568,15 @@
 
 .return-button {
   animation: fadeIn 0.5s ease-out;
+}
+
+/* Pulse animation for expand indicator */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.expand-indicator {
+  animation: pulse 1.5s infinite;
 }

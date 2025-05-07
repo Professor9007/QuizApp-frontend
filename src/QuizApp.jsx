@@ -382,6 +382,7 @@ export default function QuizApp({logout}) {
                 answers={answers}
                 score={score}
                 resetQuiz={resetQuiz}
+                returnToDashboard={returnToDashboard}
               />
             </div>
           )}

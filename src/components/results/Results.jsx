@@ -1,7 +1,15 @@
 import React from 'react';
 import './Results.css';
 
-const ResultsScreen = ({ questions, answers, score, resetQuiz }) => {
+const ResultsScreen = ({ questions, answers, score, resetQuiz, returnToDashboard}) => {
+  // Calculate number of attempted questions
+  const attemptedQuestions = answers.filter(answer => answer !== null && answer !== undefined).length;
+  
+  // Calculate accuracy based on attempted questions
+  const accuracy = attemptedQuestions > 0 
+    ? Math.round((score / attemptedQuestions) * 100) 
+    : 0;
+
   return (
     <div className="results-container">
       <h1 className="results-title">Quiz Results</h1>
@@ -16,10 +24,14 @@ const ResultsScreen = ({ questions, answers, score, resetQuiz }) => {
             <h3 className="results-summary-label">Accuracy</h3>
             <p className="results-summary-value">
               <span className="results-summary-percentage">
-                {Math.round((score / questions.length) * 100)}%
+                {accuracy}%
               </span>
             </p>
           </div>
+        </div>
+        <div className="results-attempt-info">
+          <span className="results-attempt-label">Attempted:</span>
+          <span className="results-attempt-value">{attemptedQuestions} of {questions.length}</span>
         </div>
       </div>
       
@@ -82,12 +94,21 @@ const ResultsScreen = ({ questions, answers, score, resetQuiz }) => {
         </div>
       </div>
       
-      <button 
-        onClick={resetQuiz}
-        className="results-button"
-      >
-        Start New Quiz
-      </button>
+      <div className="results-buttons-container">
+        <button 
+          onClick={resetQuiz}
+          className="results-button"
+        >
+          Start New Quiz
+        </button>
+        
+        <button 
+          onClick={returnToDashboard}
+          className="results-button results-button-return"
+        >
+          Return to Dashboard
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Quiz.css';
 
 const QuizScreen = ({ 
@@ -9,6 +9,17 @@ const QuizScreen = ({
   handleOptionSelect, 
   moveToNextQuestion 
 }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -57,7 +68,7 @@ const QuizScreen = ({
           onClick={handleClearSelection}
           disabled={selectedOption === null}
         >
-          Clear Selection
+          {isMobile ? 'Clear' : 'Clear Selection'}
         </button>
         <div className="quiz-button-group">
           <button 
@@ -72,7 +83,7 @@ const QuizScreen = ({
             className="quiz-button"
             disabled={selectedOption === null}
           >
-            {currentQuestion < questions.length - 1 ? 'Next Question' : 'Finish Quiz'}
+            {currentQuestion < questions.length - 1 ? (isMobile ? 'Next' : 'Next Question') : 'Finish Quiz'}
           </button>
         </div>
       </div>

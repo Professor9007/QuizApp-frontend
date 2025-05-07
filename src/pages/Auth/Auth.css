@@ -5,14 +5,15 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 .auth-container {
   display: flex;
   height: 100vh;
@@ -22,11 +23,13 @@ body {
   overflow: hidden;
   gap: 0; /* Ensure no gap between containers */
 }
+
 .auth-spline-container {
   flex: 0 0 42%; /* Increased from 37% to 42% */
   position: relative;
   background: linear-gradient(135deg, #1a1a2e, #16213e);
 }
+
 .auth-spline-container > * {
   position: absolute;
   top: 0;
@@ -34,6 +37,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .auth-form-container {
   flex: 0 0 58%; /* Reduced from 63% to 58% */
   background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
@@ -45,7 +49,8 @@ body {
   box-shadow: -10px 0 25px rgba(0, 0, 0, 0.15);
   z-index: 10;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* Added to ensure scrolling works */
+  overflow-x: hidden;
 }
 
 /* Decorative elements for auth-form-container */
@@ -72,8 +77,8 @@ body {
 }
 
 .auth-form-wrapper {
-  width: 100%;
-  max-width: 500px; /* Increased to better utilize the wider container */
+  width: 90%; /* Reduced from 100% to add more space on sides */
+  max-width: 500px;
   margin: 0 auto;
   background-color: white;
   padding: 2.5rem;
@@ -83,18 +88,21 @@ body {
   z-index: 2;
   border-top: 4px solid #4361ee;
 }
+
 .auth-form-wrapper h1 {
   color: #2d3748;
   margin-bottom: 0.5rem;
   font-size: 2rem;
   font-weight: 700;
 }
+
 .auth-form-wrapper h2 {
   color: #718096;
   margin-bottom: 2rem;
   font-size: 1.25rem;
   font-weight: 500;
 }
+
 .auth-error {
   background-color: #f8d7da;
   color: #721c24;
@@ -103,22 +111,26 @@ body {
   border-radius: 0.25rem;
   font-size: 0.875rem;
 }
+
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
+
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
 }
+
 .form-group label {
   font-size: 0.875rem;
   font-weight: 600;
   color: #4a5568;
 }
+
 .form-group input,
 .form-group select {
   width: 100%;
@@ -129,6 +141,7 @@ body {
   transition: all 0.2s ease;
   background-color: #f7fafc;
 }
+
 .form-group input:focus,
 .form-group select:focus {
   border-color: #4361ee;
@@ -136,6 +149,7 @@ body {
   box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
   background-color: #fff;
 }
+
 .auth-button {
   background: linear-gradient(90deg, #4361ee, #3a56d4);
   color: white;
@@ -150,60 +164,101 @@ body {
   width: 100%;
   box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
 }
+
 .auth-button:hover {
   background: linear-gradient(90deg, #3a56d4, #2a46c4);
   box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
   transform: translateY(-2px);
 }
+
 .auth-button:disabled {
   background: linear-gradient(90deg, #a0aec0, #cbd5e0);
   box-shadow: none;
   cursor: not-allowed;
   transform: none;
 }
+
 .auth-redirect {
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
   text-align: center;
   font-size: 0.95rem;
   color: #718096;
+  width: 100%;
 }
+
 .auth-redirect a {
   color: #4361ee;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
 }
+
 .auth-redirect a:hover {
   color: #3a56d4;
   text-decoration: underline;
 }
-@media (max-width: 992px) {
+
+/* Handle landscape orientation properly */
+@media screen and (max-width: 992px) and (orientation: landscape) {
   .auth-container {
-    flex-direction: column-reverse;
-  }
-  
-  .auth-form-container {
-    width: 100%;
-    flex: 0 0 70%;
-    padding: 2rem;
-  }
-  
-  .auth-form-wrapper {
-    padding: 2rem;
+    flex-direction: row;
+    height: 100vh;
+    overflow: auto;
   }
   
   .auth-spline-container {
+    display: none; /* Hide 3D element in landscape */
+  }
+  
+  .auth-form-container {
+    flex: 1;
     width: 100%;
-    flex: 0 0 30%;
+    padding: 1rem;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .auth-form-wrapper {
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 1.5rem;
   }
 }
+
+@media (max-width: 992px) {
+  .auth-container {
+    flex-direction: column;
+  }
+  
+  .auth-form-container {
+    width: 100%;
+    flex: 1 0 100%;
+    padding: 1.5rem;
+    justify-content: center;
+  }
+  
+  .auth-form-wrapper {
+    padding: 2rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Hide Spline container on mobile */
+  .auth-spline-container {
+    display: none;
+  }
+}
+
 @media (max-width: 576px) {
   .auth-form-container {
-    padding: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
   }
   
   .auth-form-wrapper {
     padding: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   }
   
   .auth-form-wrapper h1 {
@@ -214,10 +269,20 @@ body {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
   }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem;
+  }
 }
+
+/* Register page specific styles */
 .auth-container.register-page .auth-form-wrapper {
-  max-width: 440px; /* Reduced from 500px */
-  padding: 1.5rem 2rem; /* Adjusted padding */
+  max-width: 460px; /* Increased from 440px for better spacing */
+  padding: 1.5rem 2.5rem 2.5rem; /* Increased padding at bottom */
+  margin: 1rem auto; /* Add margin to ensure visibility */
+  display: flex;
+  flex-direction: column;
 }
 
 .auth-container.register-page .auth-form-wrapper h1 {
@@ -243,13 +308,16 @@ body {
 .auth-container.register-page .auth-button {
   padding: 0.8rem; /* Smaller button */
   margin-top: 1rem;
+  margin-bottom: 0.5rem; /* Add margin to ensure space for redirect text */
 }
 
 @media (max-width: 480px) {
   .auth-container.register-page .auth-form-wrapper {
-    padding: 1.25rem;
-    max-height: 85vh;
+    padding: 1.5rem 1.5rem 2.5rem; /* Increased bottom padding */
+    max-height: 95vh; /* Increased to fit all content better */
     overflow-y: auto;
+    width: 92%; /* Add more spacing on sides */
+    margin: 0.5rem auto; /* Center the form better */
   }
   
   .auth-container.register-page .auth-form-wrapper h1 {
@@ -258,5 +326,10 @@ body {
   
   .auth-container.register-page .auth-form-wrapper h2 {
     font-size: 1rem;
+  }
+  
+  .auth-redirect {
+    margin-top: 1.5rem;
+    padding-bottom: 1rem; /* Ensure the redirect link is fully visible */
   }
 }

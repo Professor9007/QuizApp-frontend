@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Spline from '@splinetool/react-spline';
 import './Auth.css';
 
-// Create a utility function to process quiz data
-// Create a utility function to process quiz data
+// Extract processQuizData as an exported function
 export const processQuizData = (quizData) => {
   const totalQuizzes = quizData.length;
 
@@ -24,7 +23,7 @@ export const processQuizData = (quizData) => {
       }));
 
       const correctCount = questions.reduce((count, q, i) => {
-        // Use correctAnswer as 0-based index (remove the -1)
+        // Use correctAnswer as 0-based index
         const correctIndex = q.correctAnswer;
         return count + (quiz.answers[i] === correctIndex ? 1 : 0);
       }, 0);
@@ -36,13 +35,12 @@ export const processQuizData = (quizData) => {
       return {
         id: quiz._id,
         title: title,
-        quizScore: correctCount, // ✅ Only this field, count of correct answers
+        quizScore: correctCount,
         date: new Date(quiz.registeredAt).toISOString().split('T')[0],
         questions: questions,
         answers: quiz.answers,
         allocatedTime: quiz.allocatedTime,
         elapsedTime: quiz.elapsedTime,
-
       };
     });
 
@@ -62,15 +60,6 @@ export const processQuizData = (quizData) => {
 
   const name = quizData.length > 0 ? quizData[0].name : 'Unknown User';
 
-  function getOrdinalSuffix(num) {
-    const j = num % 10;
-    const k = num % 100;
-    if (j === 1 && k !== 11) return 'st';
-    if (j === 2 && k !== 12) return 'nd';
-    if (j === 3 && k !== 13) return 'rd';
-    return 'th';
-  }
-
   return {
     name,
     recentQuizzes,
@@ -80,7 +69,14 @@ export const processQuizData = (quizData) => {
   };
 };
 
-
+function getOrdinalSuffix(num) {
+  const j = num % 10;
+  const k = num % 100;
+  if (j === 1 && k !== 11) return 'st';
+  if (j === 2 && k !== 12) return 'nd';
+  if (j === 3 && k !== 13) return 'rd';
+  return 'th';
+}
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -173,8 +169,11 @@ export default function LoginPage() {
     }
   };
 
+  // Use the imported processQuizData function
+
   return (
     <div className="auth-container">
+      {/* Spline container will be hidden on mobile via CSS */}
       <div className="auth-spline-container">
         <Spline scene="https://prod.spline.design/nRuRs7tZryTIyP0a/scene.splinecode" />
       </div>

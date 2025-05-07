@@ -49,12 +49,26 @@ body {
   justify-content: center;
   height: 4rem;
   background-color: #4338ca;
+  position: relative; /* For positioning the close button */
 }
 
 .sidebar-logo h1 {
   color: white;
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+/* Added close button inside sidebar */
+.sidebar-close-button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
 }
 
 .sidebar-nav {
@@ -227,6 +241,8 @@ body {
 .header-container {
   padding: 1.5rem 2rem;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .header-title {
@@ -290,16 +306,20 @@ body {
   background-color: #0e7490;
 }
 
-/* Mobile menu */
+/* Mobile menu - UPDATED */
 .mobile-menu-button {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
+  position: relative;
   z-index: 20;
-  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.375rem;
-  background-color: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  border: none;
+  margin-right: 1rem;
+  cursor: pointer;
   display: none;
 }
 
@@ -314,6 +334,10 @@ body {
   }
   
   .mobile-menu-button {
+    display: flex;
+  }
+  
+  .sidebar-close-button {
     display: block;
   }
   
@@ -321,6 +345,35 @@ body {
     margin-left: 0;
     width: 100vw;
     max-width: 100vw;
+  }
+  
+  /* Fix header layout to include menu button */
+  .header-container {
+    padding-left: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .mobile-menu-button {
+    position: absolute;
+    left: 1.75rem;
+    top: 20px;
+    width: 1.25rem; 
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  
+  .header-title {
+    font-size: 1.5rem; /* Slightly reduce font size on mobile */
+    text-align: center;
   }
 }
 

@@ -43,7 +43,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="auth-container register-page"> {/* Added register-page class */}
+    <div className="auth-container register-page">
+      {/* Spline container will be hidden on mobile via CSS */}
       <div className="auth-spline-container">
         <Spline scene="https://prod.spline.design/nRuRs7tZryTIyP0a/scene.splinecode" />
       </div>

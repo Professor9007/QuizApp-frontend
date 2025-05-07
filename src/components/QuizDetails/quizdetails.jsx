@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './quizdetails.css';
 
 // New Accuracy Ring Component
@@ -99,6 +99,25 @@ const AccuracyRing = ({ percentage }) => {
 };
 
 const QuizDetailsScreen = ({ quizID, userData, returnToDashboard }) => {
+  const [expandedQuestion, setExpandedQuestion] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if the device is mobile on component mount and on window resize
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   // Find the quiz with matching ID
   const quiz = userData.recentQuizzes.find(quiz => quiz.id === quizID);
   
@@ -167,6 +186,13 @@ const QuizDetailsScreen = ({ quizID, userData, returnToDashboard }) => {
     return 'low-accuracy';
   };
 
+  // Toggle question expansion on mobile
+  const toggleQuestion = (index) => {
+    if (isMobile) {
+      setExpandedQuestion(expandedQuestion === index ? null : index);
+    }
+  };
+
   return (
     <div className="quiz-details-container">
       {/* Quiz Header Information */}
@@ -216,7 +242,7 @@ const QuizDetailsScreen = ({ quizID, userData, returnToDashboard }) => {
           </div>
         </div>
         
-        {/* New Accuracy Ring Component - Separated from the stats line */}
+        {/* Accuracy Ring Component */}
         <div className="accuracy-ring-wrapper">
           <div className="stat-card accuracy-stat">
             <AccuracyRing percentage={accuracyPercentage} />
@@ -231,50 +257,77 @@ const QuizDetailsScreen = ({ quizID, userData, returnToDashboard }) => {
           const userAnswer = quiz.answers[questionIndex];
           const isUnattempted = userAnswer === null || userAnswer === undefined;
           const isCorrect = !isUnattempted && userAnswer === questionItem.correctAnswer;
+          const isExpanded = expandedQuestion === questionIndex;
+          
+          // Add class for collapsible question cards on mobile
+          const questionCardClass = `question-card ${isMobile ? 'mobile-card' : ''} ${isExpanded ? 'expanded' : ''}`;
           
           return (
-            <div key={questionIndex} className="question-card">
-              <div className="question-number">Question {questionIndex + 1}</div>
-              <div className="question-text">{questionItem.question}</div>
-              
-              <div className="options-list">
-                {questionItem.options.map((option, optionIndex) => {
-                  let optionClass = "option";
-                  
-                  // Correct answer styling
-                  if (optionIndex === questionItem.correctAnswer) {
-                    optionClass += " correct-answer";
-                  }
-                  
-                  // User's selected answer styling (only if attempted)
-                  if (!isUnattempted && optionIndex === userAnswer) {
-                    // If user selected the wrong answer
-                    if (!isCorrect) {
-                      optionClass += " wrong-option";
-                    } else {
-                      optionClass += " correct-option";
-                    }
-                  }
-                  
-                  return (
-                    <div key={optionIndex} className={optionClass}>
-                      <span className="option-letter">
-                        {String.fromCharCode(65 + optionIndex)}
-                      </span>
-                      <span className="option-text">{option}</span>
-                    </div>
-                  );
-                })}
+            <div 
+              key={questionIndex} 
+              className={questionCardClass}
+              onClick={() => toggleQuestion(questionIndex)}
+            >
+              <div className="question-header">
+                <div className="question-number">Question {questionIndex + 1}</div>
+                {isMobile && !isExpanded && (
+                  <div className={`quick-result ${isUnattempted ? 'unattempted' : (isCorrect ? 'correct' : 'incorrect')}`}>
+                    {isUnattempted ? '!' : (isCorrect ? '✓' : '✗')}
+                  </div>
+                )}
+                {isMobile && (
+                  <div className="expand-indicator">
+                    {isExpanded ? '−' : '+'}
+                  </div>
+                )}
               </div>
               
-              <div className={`answer-result ${isUnattempted ? 'unattempted' : (isCorrect ? 'correct' : 'incorrect')}`}>
-                {isUnattempted 
-                  ? <span className="unattempted-text">! Unattempted. The correct answer is {String.fromCharCode(65 + questionItem.correctAnswer)}</span>
-                  : (isCorrect 
-                    ? <span className="correct-text">✓ Correct</span>
-                    : <span className="incorrect-text">✗ Incorrect. The correct answer is {String.fromCharCode(65 + questionItem.correctAnswer)}</span>
-                  )
-                }
+              <div className="question-content">
+                <div className="question-text">{questionItem.question}</div>
+                
+                {(!isMobile || isExpanded) && (
+                  <>
+                    <div className="options-list">
+                      {questionItem.options.map((option, optionIndex) => {
+                        let optionClass = "option";
+                        
+                        // Correct answer styling
+                        if (optionIndex === questionItem.correctAnswer) {
+                          optionClass += " correct-answer";
+                        }
+                        
+                        // User's selected answer styling (only if attempted)
+                        if (!isUnattempted && optionIndex === userAnswer) {
+                          // If user selected the wrong answer
+                          if (!isCorrect) {
+                            optionClass += " wrong-option";
+                          } else {
+                            optionClass += " correct-option";
+                          }
+                        }
+                        
+                        return (
+                          <div key={optionIndex} className={optionClass}>
+                            <span className="option-letter">
+                              {String.fromCharCode(65 + optionIndex)}
+                            </span>
+                            <span className="option-text">{option}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    
+                    <div className={`answer-result ${isUnattempted ? 'unattempted' : (isCorrect ? 'correct' : 'incorrect')}`}>
+                      {isUnattempted 
+                        ? <span className="unattempted-text">! Unattempted. The correct answer is {String.fromCharCode(65 + questionItem.correctAnswer)}</span>
+                        : (isCorrect 
+                          ? <span className="correct-text">✓ Correct</span>
+                          : <span className="incorrect-text">✗ Incorrect. The correct answer is {String.fromCharCode(65 + questionItem.correctAnswer)}</span>
+                        )
+                      }
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           );
