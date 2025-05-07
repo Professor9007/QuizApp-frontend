@@ -111,6 +111,13 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={
+          localStorage.getItem('token') ? (
+            <Navigate to="/dashboard" replace />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        } />
       </Routes>
     </BrowserRouter>
   );
