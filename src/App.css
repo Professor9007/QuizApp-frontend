@@ -83,8 +83,25 @@ body {
   gap: 0.5rem;
 }
 
-.sidebar-nav .nav-items a {
-  color: white; /* Ensuring nav links in sidebar are white */
+/* Make all sidebar navigation items white */
+.sidebar-nav .nav-items a,
+.sidebar-nav .nav-items svg,
+.sidebar-nav .nav-items span,
+.sidebar-nav .nav-items div,
+.sidebar-nav .nav-items p {
+  color: white;
+  stroke: white;
+}
+
+/* Style for SidebarItem component */
+.nav-items svg {
+  color: white;
+  stroke: white;
+}
+
+/* Make Dashboard, Quizzes, AI Chat text white */
+.nav-items span {
+  color: white;
 }
 
 .sidebar-user {
@@ -342,7 +359,16 @@ a {
   margin-right: 1rem;
   cursor: pointer;
   display: none;
-  color: #000000; /* Ensure icon color is black */
+}
+
+/* Make the X button white */
+.mobile-menu-button button {
+  color: white;
+}
+
+.mobile-menu-button button svg {
+  color: white;
+  stroke: white;
 }
 
 /* Mobile responsive */
@@ -391,8 +417,18 @@ a {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #000000; /* Ensure icon color is black */
   }
+  
+  /* Ensure menu button and its icon are white on mobile */
+  .mobile-menu-button button {
+    color: white;
+  }
+  
+  .mobile-menu-button button svg {
+    color: white;
+    stroke: white;
+  }
+}
   
   .header-title {
     font-size: 1.5rem; /* Slightly reduce font size on mobile */
