@@ -1,4 +1,4 @@
-# 📘 Document-Based Quiz Generator
+# 📘 Document-Based Generator
 
 🚀 [Live Demo](https://quizapp-zeta-black.vercel.app/)  
 🔧 Tech Stack: **React**, **Node.js**, **Express**, **MongoDB**
